@@ -1,0 +1,14 @@
+{
+    "1": {
+        "name": "Docker Birthday #9",
+        "description": "Fêter le 9e anniversaire de Docker",
+        "startDate": "2022-04-06T21:30:00.000Z",
+        "endDate": "2022-04-07T00:00:00.000Z"
+    },
+    "2": {
+        "name": "Conférence au Web à Québec",
+        "description": "Comment maîtriser Git et produire de beaux <<commits>>",
+        "startDate": "2022-05-25T14:15:00.000Z",
+        "endDate": "2022-05-25T15:00:00.000Z"
+    }
+}
