@@ -1,7 +1,7 @@
 {
   "scripts": {
     "start:dev": "nodemon",
-    "test": "jest"
+    "test": "npx jest --coverage --watchAll"
   },
   "dependencies": {
     "@types/express": "^4.17.13",
