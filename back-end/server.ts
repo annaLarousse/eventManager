@@ -13,3 +13,5 @@ app.use(function (_req, res, next) {
 app.listen(port, () => {
   console.log(`server started at http://localhost:${port}`);
 });
+
+require('./api/event')(app);
