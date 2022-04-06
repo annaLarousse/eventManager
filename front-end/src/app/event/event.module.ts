@@ -1,12 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-
+import { EventPageComponent } from './components/event-page/event-page.component';
 
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule
-  ]
+  declarations: [EventPageComponent],
+  imports: [CommonModule],
+  exports: [EventPageComponent],
 })
-export class EventModule { }
+export class EventModule {}
