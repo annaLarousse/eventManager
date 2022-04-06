@@ -1,9 +1,9 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatTableModule } from '@angular/material/table';
 import { of } from 'rxjs';
 import { EventService } from '../../services/event.service';
-
 import { EventListComponent } from './event-list.component';
 
 describe('EventListComponent', () => {
@@ -11,7 +11,8 @@ describe('EventListComponent', () => {
   let fixture: ComponentFixture<EventListComponent>;
   let mockData: any[] = [{ test: 'test' }];
   let eventServiceMock = {
-    getEvents: () => of(mockData),
+    //getEvents: () => of(mockData),
+    events$: of(mockData),
   };
 
   beforeEach(async () => {
@@ -19,7 +20,7 @@ describe('EventListComponent', () => {
       declarations: [EventListComponent],
       providers: [{ provide: EventService, useValue: eventServiceMock }],
       imports: [HttpClientTestingModule],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
     }).compileComponents();
   });
 

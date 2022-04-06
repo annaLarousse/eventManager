@@ -1,0 +1,67 @@
+<h3>Add new Event</h3>
+
+<form [formGroup]="form">
+  <div class="event-add__form-container">
+    <div class="form__event-name">
+      <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input
+          matInput
+          id="event-name"
+          formControlName="name"
+          placeholder="Ex. First day at Kumojin"
+          required
+          maxlength="32"
+        />
+      </mat-form-field>
+    </div>
+
+    <div class="form__event-start-date">
+      <mat-form-field>
+        <mat-label>Start date</mat-label>
+        <input
+          matInput
+          id="event-start-date"
+          formControlName="startDate"
+          type="datetime-local"
+          required
+        />
+      </mat-form-field>
+    </div>
+
+    <div class="form__event-end-date">
+      <mat-form-field>
+        <mat-label>End date</mat-label>
+        <input
+          matInput
+          id="event-end-date"
+          formControlName="endDate"
+          type="datetime-local"
+          required
+        />
+      </mat-form-field>
+    </div>
+
+    <div class="form__event-description">
+      <mat-form-field>
+        <mat-label>Description</mat-label>
+        <textarea
+          matInput
+          id="event-description"
+          formControlName="description"
+        ></textarea>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="event-add__button-container">
+    <button
+      mat-raised-button
+      color="primary"
+      [disabled]="form?.invalid"
+      (click)="onAddNewEvent()"
+    >
+      Save
+    </button>
+  </div>
+</form>

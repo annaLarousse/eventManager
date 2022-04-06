@@ -1,0 +1,38 @@
+:host.event-add {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+
+  .event-add {
+    &__form-container {
+      display: grid;
+      column-gap: 2rem;
+      grid-template-areas:
+        "name name . . ."
+        "start-date end-date . . ."
+        "description description . . .";
+
+      .form {
+        &__event-name {
+          grid-area: name;
+        }
+
+        &__event-start-date {
+          grid-area: start-date;
+        }
+
+        &__event-end-date {
+          grid-area: end-date;
+        }
+
+        &__event-description {
+          grid-area: description;
+        }
+      }
+
+      .mat-form-field {
+        width: 100%;
+      }
+    }
+  }
+}
