@@ -1,0 +1,18 @@
+:host.event-list {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+
+  .event-list {
+    &__table {
+      width: 100%;
+      ::ng-deep td {
+        &.mat-column-name,
+        &.mat-column-startDate,
+        &.mat-column-endDate {
+          width: 12rem;
+        }
+      }
+    }
+  }
+}
