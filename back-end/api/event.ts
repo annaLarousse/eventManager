@@ -1,6 +1,7 @@
 import fs from 'fs';
 import { Express, Request, Response } from 'express';
 import { IEvent } from '../models/event';
+import { IApiResponse } from '../models/apiResponse';
 
 const dataFilePath: string = __dirname + '/../data/' + 'events.json';
 module.exports = (app: Express) => {
@@ -16,9 +17,20 @@ module.exports = (app: Express) => {
   });
 
   app.post('/event', (req: Request, res: Response) => {
+    res.contentType('application/json');
+    let apiResponse: IApiResponse;
     const newEvent: IEvent = req.body;
+
     if (newEvent?.name?.length > 32) {
-      res.status(400).json('Event name cannot exceed 32 characters');
+      apiResponse = {
+        status: 400,
+        message: 'Event name cannot exceed 32 characters',
+      };
+    } else if (newEvent?.endDate <= newEvent.startDate) {
+      apiResponse = {
+        status: 400,
+        message: 'The end date have to be after the start date.',
+      };
     } else {
       res.contentType('text/plain');
       let data = getEventsFromJSONFile();
@@ -33,10 +45,13 @@ module.exports = (app: Express) => {
 
       data = JSON.stringify(data, undefined, 2);
       fs.writeFileSync(dataFilePath, data);
-
-      res.writeHead(201);
-      res.end(newId.toString());
+      apiResponse = {
+        status: 201,
+        message: 'Event added successfully!',
+      };
     }
+    res.writeHead(apiResponse.status);
+    res.end(JSON.stringify(apiResponse));
   });
 };
 

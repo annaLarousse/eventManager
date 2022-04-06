@@ -67,11 +67,13 @@ describe('POST / event', () => {
     expect(res.status).toBe(400);
   });
 
-  it('should return the id of the new element after creation completed successfully', async () => {
+  it('should return status 400 when end date is inferior to the start date', async () => {
     (<jest.Mock>fs.readFileSync).mockReturnValueOnce(
       JSON.stringify(mockEvents)
     );
+    newElement['startDate'] = '2022-04-02T20:35:00.484Z';
+    newElement['endDate'] = '2022-04-01T20:35:00.484Z';
     const res = await request(app).post('/event').send(newElement).then();
-    expect(res.text).toBe((Object.keys(mockEvents)?.length + 1).toString());
+    expect(res.status).toBe(400);
   });
 });
