@@ -27,7 +27,7 @@ describe('EventListComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should initialized events$ with the data returned from EventService', () => {
+  it('should initialize events$ with the data returned from EventService', () => {
     expect(lastValueFrom(component.events$)).resolves.toEqual(mockData);
   });
 

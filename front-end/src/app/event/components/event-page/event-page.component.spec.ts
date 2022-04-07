@@ -20,7 +20,7 @@ describe('EventPageComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('event-page snapshot', () => {
+    expect(fixture).toMatchSnapshot();
   });
 });
