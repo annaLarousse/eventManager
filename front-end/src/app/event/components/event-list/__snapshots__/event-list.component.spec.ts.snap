@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EventListComponent should display a list of all events 1`] = `
+<app-event-list
+  __ngContext__={[Function LRootView]}
+  _eventService={[Function Object]}
+  displayedColumns={[Function Array]}
+  events$={[Function Observable]}
+>
+  <h3>
+    Events list
+  </h3><table
+    class="event-list__table mat-elevation-z8"
+    mat-table=""
+  >
+  </table>
+</app-event-list>
+`;

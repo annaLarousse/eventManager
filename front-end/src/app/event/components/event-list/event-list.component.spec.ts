@@ -30,4 +30,8 @@ describe('EventListComponent', () => {
   it('should initialized events$ with the data returned from EventService', () => {
     expect(lastValueFrom(component.events$)).resolves.toEqual(mockData);
   });
+
+  it('should display a list of all events', () => {
+    expect(fixture).toMatchSnapshot();
+  });
 });
