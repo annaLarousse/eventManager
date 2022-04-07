@@ -1,17 +1,14 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { MatTableModule } from '@angular/material/table';
-import { of } from 'rxjs';
+import { lastValueFrom, of } from 'rxjs';
 import { EventService } from '../../services/event.service';
 import { EventListComponent } from './event-list.component';
-
 describe('EventListComponent', () => {
   let component: EventListComponent;
   let fixture: ComponentFixture<EventListComponent>;
   let mockData: any[] = [{ test: 'test' }];
   let eventServiceMock = {
-    //getEvents: () => of(mockData),
     events$: of(mockData),
   };
 
@@ -20,7 +17,7 @@ describe('EventListComponent', () => {
       declarations: [EventListComponent],
       providers: [{ provide: EventService, useValue: eventServiceMock }],
       imports: [HttpClientTestingModule],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
+      schemas: [NO_ERRORS_SCHEMA],
     }).compileComponents();
   });
 
@@ -30,7 +27,7 @@ describe('EventListComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should initialized events$ with the data returned from EventService', () => {
+    expect(lastValueFrom(component.events$)).resolves.toEqual(mockData);
   });
 });

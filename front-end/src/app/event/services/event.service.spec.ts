@@ -27,6 +27,12 @@ describe('EventService', () => {
       const promise = service.getEvents().toPromise();
       const req = backend.expectOne(`${environment.apiUrl}/events`);
       expect(req.request.method).toEqual('GET');
+    });
+
+    it('should return formatted data (json -> array)', async () => {
+      // TODO - Replace toPromise()
+      const promise = service.getEvents().toPromise();
+      const req = backend.expectOne(`${environment.apiUrl}/events`);
       req.flush({}, {});
       const result = await promise;
       expect(result).toEqual([]);
