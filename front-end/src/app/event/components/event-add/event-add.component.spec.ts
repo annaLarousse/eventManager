@@ -36,7 +36,6 @@ describe('EventAddComponent', () => {
 
   describe('AddNewEvent()', () => {
     it('should call postEvent() of EventService', () => {
-      const spyForm = jest.spyOn(component.form, 'reset');
       const spyPostEvent = jest.spyOn(eventServiceMock, 'postEvent');
       expect(spyPostEvent).not.toHaveBeenCalled();
       component.onAddNewEvent();

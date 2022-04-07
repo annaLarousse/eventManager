@@ -21,11 +21,11 @@ export class EventService {
   public baseUrl: string = `${environment.apiUrl}`;
   public events$: Observable<IEvent[]>;
 
-  private _eventsChanged$ = new BehaviorSubject(true);
+  public eventsChanged$ = new BehaviorSubject(true);
 
   constructor(private http: HttpClient, private _snackBar: MatSnackBar) {
     // BehaviourSubject used to simulate NGRX Store
-    this.events$ = this._eventsChanged$.pipe(switchMap(() => this.getEvents()));
+    this.events$ = this.eventsChanged$.pipe(switchMap(() => this.getEvents()));
   }
 
   public getEvents() {
@@ -39,7 +39,7 @@ export class EventService {
   public postEvent(data: IEvent) {
     return this.http.post<INotification>(`${this.baseUrl}/event`, data).pipe(
       map((response) => {
-        this._eventsChanged$.next(true);
+        this.eventsChanged$.next(true);
         return <INotification>{ type: 'success', message: response.message };
       }),
       catchError((error) => {
