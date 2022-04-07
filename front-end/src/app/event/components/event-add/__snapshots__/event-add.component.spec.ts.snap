@@ -1,0 +1,99 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EventAddComponent should display the add new event form 1`] = `
+<app-event-add
+  __ngContext__={[Function LRootView]}
+  _eventService={[Function Object]}
+  form={[Function FormGroup]}
+>
+  <h3>
+    Add new Event
+  </h3><form
+    class="ng-untouched ng-pristine ng-invalid"
+    novalidate=""
+  >
+    <div
+      class="event-add__form-container"
+    >
+      <div
+        class="form__event-name"
+      >
+        <mat-form-field>
+          <mat-label>
+            Name
+          </mat-label>
+          <input
+            class="ng-untouched ng-pristine ng-invalid"
+            formcontrolname="name"
+            id="event-name"
+            matinput=""
+            maxlength="32"
+            placeholder="Ex. First day at Kumojin"
+            required=""
+          />
+        </mat-form-field>
+      </div>
+      <div
+        class="form__event-start-date"
+      >
+        <mat-form-field>
+          <mat-label>
+            Start date
+          </mat-label>
+          <input
+            class="ng-untouched ng-pristine ng-invalid"
+            formcontrolname="startDate"
+            id="event-start-date"
+            matinput=""
+            required=""
+            type="datetime-local"
+          />
+        </mat-form-field>
+      </div>
+      <div
+        class="form__event-end-date"
+      >
+        <mat-form-field>
+          <mat-label>
+            End date
+          </mat-label>
+          <input
+            class="ng-untouched ng-pristine ng-invalid"
+            formcontrolname="endDate"
+            id="event-end-date"
+            matinput=""
+            required=""
+            type="datetime-local"
+          />
+        </mat-form-field>
+      </div>
+      <div
+        class="form__event-description"
+      >
+        <mat-form-field>
+          <mat-label>
+            Description
+          </mat-label>
+          <textarea
+            class="ng-untouched ng-pristine ng-valid"
+            formcontrolname="description"
+            id="event-description"
+            matinput=""
+          />
+        </mat-form-field>
+      </div>
+    </div>
+    <div
+      class="event-add__button-container"
+    >
+      <button
+        color="primary"
+        disabled=""
+        mat-raised-button=""
+      >
+         Save 
+      </button>
+    </div>
+  </form>
+</app-event-add>
+`;
