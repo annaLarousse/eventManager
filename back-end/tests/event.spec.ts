@@ -42,14 +42,14 @@ describe('POST / event', () => {
   const newElementInitialValue = {
     'name': 'Mock event test Post',
     'description': 'Mock event test post description',
-    'startDate': '2022-04-04T00:0:00.000Z',
-    'endDate': '2022-04-05T00:0:00.000Z',
+    'startDate': '2022-04-04T00:00:00.000Z',
+    'endDate': '2022-04-05T00:00:00.000Z',
   };
-  let newElement: any = { ...newElementInitialValue };
-  afterEach(() => {
+  let newElement: any;
+  beforeEach(() => {
+    jest.resetAllMocks();
     newElement = { ...newElementInitialValue };
   });
-
   it('should return status 201 when creation completed successfully', async () => {
     (<jest.Mock>fs.readFileSync).mockReturnValueOnce(
       JSON.stringify(mockEvents)
@@ -58,11 +58,49 @@ describe('POST / event', () => {
     expect(res.status).toBe(201);
   });
 
+  it('should return status 201 when event.json is null', async () => {
+    (<jest.Mock>fs.readFileSync).mockReturnValueOnce(null);
+    const res = await request(app).post('/event').send(newElement).then();
+    expect(res.status).toBe(201);
+  });
+
+  it('should return status 400 when request body is null', async () => {
+    const res = await request(app).post('/event').send().then();
+    expect(res.status).toBe(400);
+  });
+
   it('should return status 400 when name property exceed 32 characters', async () => {
     (<jest.Mock>fs.readFileSync).mockReturnValueOnce(
       JSON.stringify(mockEvents)
     );
     newElement['name'] = 'This event name is really too long';
+    const res = await request(app).post('/event').send(newElement).then();
+    expect(res.status).toBe(400);
+  });
+
+  it('should return status 400 when start date property is null', async () => {
+    (<jest.Mock>fs.readFileSync).mockReturnValueOnce(
+      JSON.stringify(mockEvents)
+    );
+    newElement['startDate'] = null;
+    const res = await request(app).post('/event').send(newElement).then();
+    expect(res.status).toBe(400);
+  });
+
+  it('should return status 400 when end date property is null', async () => {
+    (<jest.Mock>fs.readFileSync).mockReturnValueOnce(
+      JSON.stringify(mockEvents)
+    );
+    newElement['endDate'] = null;
+    const res = await request(app).post('/event').send(newElement).then();
+    expect(res.status).toBe(400);
+  });
+
+  it('should return status 400 when name property is null', async () => {
+    (<jest.Mock>fs.readFileSync).mockReturnValueOnce(
+      JSON.stringify(mockEvents)
+    );
+    newElement['name'] = null;
     const res = await request(app).post('/event').send(newElement).then();
     expect(res.status).toBe(400);
   });
