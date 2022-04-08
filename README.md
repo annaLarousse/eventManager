@@ -23,23 +23,34 @@ Run `npm run build` to build the project. The build artifacts will be stored in 
 
 - ✅ Display all events
 - ✅ Add a new event
-- ✅ `name` max length validation -> 32 char
+- ✅ Form validation -> required fields (name, start date, end date) + name length (32 char)
 - ✅ Unit testing (service, components)
-- ⬛ Dates validation -> `endDate` cannot be before `startDate`
+- ⬛ Dates validation -> end Date cannot be before start Date
 - ⬛ Edit an existing event
 - ⬛ Delete an existing event
 - ⬛ E2E testing
-- ⬛ Add NGRX Store (ssf)
+- ⬛ Add NGRX Store (sst)
 
 ## Back-End
+
+this is a Node.js Express server developped in Typescript.
+
+### Development server
+
+Run `npm run start:dev` for a dev server. Navigate to `http://localhost:8081/`. The application will automatically reload if you change any of the source files.
+
+### Running unit tests
+
+Run `npm test` to execute the unit tests via Jest. The tests will automatically reload if you change any of the source files.
+The test coverage is available.
 
 ### Features:
 
 - ✅ Api GET/events
 - ✅ Api POST/event
-- ✅ `name` max length validation -> 32 char
-- ✅ Dates validation -> `endDate` cannot be before `startDate`
+- ✅ Data validation -> required fields (name, start date, end date) + name length (32 char) + date validation (end date cannot be before start date)
 - ✅ Unit testing
 - ⬛ Api PUT/event
 - ⬛ Api DELETE/event
 - ⬛ Api GET/event/{id}
+- ⬛ Use data validators (express-validator?)
