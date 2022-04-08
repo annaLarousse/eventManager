@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { IEvent } from '../../../../../../back-end/models/event';
+import { IEvent } from '../../models/event';
 import { EventService } from '../../services/event.service';
 
 @Component({

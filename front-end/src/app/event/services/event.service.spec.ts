@@ -5,8 +5,8 @@ import {
 import { TestBed } from '@angular/core/testing';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { IEvent } from '../../../../../back-end/models/event';
 import { environment } from '../../../environments/environment';
+import { IEvent } from '../models/event';
 import { EventService } from './event.service';
 
 describe('EventService', () => {
@@ -17,16 +17,16 @@ describe('EventService', () => {
     id: 1,
     name: 'test',
     description: 'test',
-    startDate: new Date('2022-04-06T21:30:00.000Z'),
-    endDate: new Date('2022-04-07T21:30:00.000Z'),
+    startDate: '2022-04-06T21:30:00.000Z',
+    endDate: '2022-04-07T21:30:00.000Z',
   };
 
   let mockInvalidDataToAdd: IEvent = {
     id: 1,
     name: 'test',
     description: 'test',
-    startDate: new Date('2022-04-06T21:30:00.000Z'),
-    endDate: new Date('2022-04-01T21:30:00.000Z'),
+    startDate: '2022-04-06T21:30:00.000Z',
+    endDate: '2022-04-01T21:30:00.000Z',
   };
 
   beforeEach(() => {

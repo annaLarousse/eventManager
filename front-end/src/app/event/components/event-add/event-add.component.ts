@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { take, tap } from 'rxjs';
-import { IEvent } from '../../../../../../back-end/models/event';
+import { IEvent } from '../../models/event';
 import { EventService } from '../../services/event.service';
 
 @Component({
@@ -23,14 +23,14 @@ export class EventAddComponent {
   public onAddNewEvent(): void {
     const data: IEvent = {
       ...this.form.value,
-      startDate: new Date(this.form.value?.startDate).toISOString(),
-      endDate: new Date(this.form.value?.endDate).toISOString(),
+      startDate: new Date(this.form.value.startDate).toISOString(),
+      endDate: new Date(this.form.value.endDate).toISOString(),
     };
     this._eventService
       .postEvent(data)
       .pipe(
         tap((notification) => {
-          if (notification?.type === 'success') {
+          if (notification.type === 'success') {
             this.form.reset();
           }
         }),

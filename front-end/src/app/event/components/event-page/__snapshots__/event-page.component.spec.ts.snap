@@ -4,10 +4,20 @@ exports[`EventPageComponent event-page snapshot 1`] = `
 <app-event-page
   __ngContext__={[Function LRootView]}
 >
-  <h1>
-    Kumojin
-  </h1><h2>
-    Event Management
-  </h2><app-event-add /><mat-divider /><app-event-list />
+  <div
+    class="event-page__header"
+  >
+    <img
+      alt="Event Manager"
+      class="logo"
+      src="../../../../assets/logo.svg"
+    />
+  </div><div
+    class="event-page__container"
+  >
+    <app-event-add />
+    <mat-divider />
+    <app-event-list />
+  </div>
 </app-event-page>
 `;

@@ -10,9 +10,9 @@ import {
   tap,
 } from 'rxjs';
 import { environment } from '../../../environments/environment';
-import { IEvent } from '../../../../../back-end/models/event';
 import { INotification } from '../../../../../back-end/models/notification';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { IEvent } from '../models/event';
 
 @Injectable({
   providedIn: 'root',
@@ -45,11 +45,11 @@ export class EventService {
       catchError((error) => {
         return of(<INotification>{
           type: 'error',
-          message: error?.error?.message,
+          message: error.error.message,
         });
       }),
       tap((notification) => {
-        this._snackBar.open(notification?.message, undefined, {
+        this._snackBar.open(notification.message, undefined, {
           duration: 5000,
           horizontalPosition: 'end',
           verticalPosition: 'top',
