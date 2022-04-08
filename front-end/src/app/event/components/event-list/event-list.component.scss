@@ -1,7 +1,6 @@
 :host.event-list {
   display: flex;
   flex-direction: column;
-  margin: 1rem;
 
   .event-list {
     &__table {
@@ -12,6 +11,10 @@
         &.mat-column-endDate {
           width: 12rem;
         }
+      }
+
+      ::ng-deep th.mat-header-cell {
+        color: var(--primary);
       }
     }
   }

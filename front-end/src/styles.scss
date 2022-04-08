@@ -2,18 +2,20 @@
 
 html,
 body {
+  --primary: #213a45;
+  --success: green;
+  --error: firebrick;
+
   height: 100%;
-}
-body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
 .snackbar {
   &__error {
-    background-color: firebrick;
+    background-color: var(--error);
   }
   &__success {
-    background-color: green;
+    background-color: var(--success);
   }
 }

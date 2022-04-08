@@ -1,0 +1,29 @@
+:host.event-page {
+  .event-page {
+    &__header {
+      background-color: var(--primary);
+      .logo {
+        margin: 2rem;
+        width: 22rem;
+        animation: intro 3s ease-in-out;
+      }
+    }
+    &__container {
+      margin: 2rem;
+
+      .mat-divider {
+        margin: 2rem 0;
+        border-top-color: var(--primary);
+      }
+    }
+  }
+}
+
+@keyframes intro {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
