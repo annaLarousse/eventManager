@@ -57,8 +57,8 @@ Run `npm run build` to build the project. The build artifacts will be stored in 
 - ✅ Add a new event
 - ✅ Form validation -> required fields (name, start date, end date) + name length (32 char)
 - ✅ Unit testing (service, components)
-- ⬛ Dates validation -> end Date cannot be before start Date
-- ⬛ Edit an existing event
-- ⬛ Delete an existing event
+- ⬛ Dates validation -> end date cannot be before start date
+- ⬛ Edit an event
+- ⬛ Delete an event
 - ⬛ E2E testing
 - ⬛ Add NGRX Store (sst)
